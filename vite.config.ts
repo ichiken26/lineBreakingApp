@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 // GitHub Pages用のベースパスを設定
 // リポジトリ名を環境変数から取得（例: ichiken26/markdownConvertToPDF -> /markdownConvertToPDF/）
 const getBasePath = () => {
@@ -13,6 +15,6 @@ const getBasePath = () => {
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), cloudflare()],
   base: getBasePath(),
 })
